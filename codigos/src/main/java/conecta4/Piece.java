@@ -1,4 +1,4 @@
-package org.example;
+package conecta4;
 
 public class Piece {
     private String color;

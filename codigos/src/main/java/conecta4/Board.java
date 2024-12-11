@@ -1,4 +1,4 @@
-package org.example;
+package conecta4;
 
 public class Board {
     private static final int ROWS = 6;
@@ -33,6 +33,7 @@ public class Board {
     }
 
     public String checkVictory() {
+        // Implementar lógica para verificar victoria (horizontal, vertical, diagonal).
         return null;
     }
 
@@ -45,4 +46,5 @@ public class Board {
         }
     }
 }
+
 
