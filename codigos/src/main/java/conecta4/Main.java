@@ -4,14 +4,31 @@ package conecta4;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Board board = new Board();
+        Piece redpiece = new Piece("r");
+        Piece yellowpiece = new Piece("y");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        board.playPiece(3, redpiece);
+        board.playPiece(0, yellowpiece);
+        board.playPiece(0, redpiece);
+        board.playPiece(0, yellowpiece);
+        board.playPiece(0, redpiece);
+        board.playPiece(1, yellowpiece);
+        board.playPiece(1, redpiece);
+        board.playPiece(2, yellowpiece);
+        board.playPiece(1, redpiece);
+        board.playPiece(4, yellowpiece);
+        board.playPiece(2, redpiece);
+        board.playPiece(3, yellowpiece);
+
+        board.printBoard();
+
+        int winner = board.checkdiagonalwin();
+        if (winner != 0) {
+            System.out.println(winner);
+        } else {
+            System.out.println("no hay ganador aun");
         }
+
     }
 }

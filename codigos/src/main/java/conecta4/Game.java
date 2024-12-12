@@ -51,7 +51,7 @@ public class Game {
     }
 
     private void switchTurn() {
-        currentPlayer = (currentPlayer == getId(player1)) ? getId(player2) : getId(player1);
+        currentPlayer = (currentPlayer == player1) ? player2 : player1;
     }
 
     public void printBoard() {
