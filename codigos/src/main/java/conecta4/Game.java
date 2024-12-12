@@ -13,10 +13,10 @@ public class Game {
     private Player currentPlayer;
     private List<String> moveHistory;
 
-    public Game(Player player1, Player player2) {
-        this.board = new Board();
+    public Game(Player player1, Player player2, Board board) {
         this.player1 = player1;
         this.player2 = player2;
+        this.board = board;
         this.currentPlayer = player1;
         this.moveHistory = new ArrayList<>();
     }
@@ -33,6 +33,10 @@ public class Game {
         return player2;
     }
 
+    public Board getBoard() {
+        return board;
+    }
+
     public boolean makeMove(int column) {
         if (!board.canPlay()) return false;
 
@@ -47,7 +51,7 @@ public class Game {
     }
 
     private void switchTurn() {
-        currentPlayer = (currentPlayer == player1) ? player2 : player1;
+        currentPlayer = (currentPlayer == getId(player1)) ? getId(player2) : getId(player1);
     }
 
     public void printBoard() {

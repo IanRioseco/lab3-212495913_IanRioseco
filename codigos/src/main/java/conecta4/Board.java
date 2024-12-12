@@ -32,7 +32,7 @@ public class Board {
         return false;
     }
 
-    public String checkVictory() {
+    public String checkverticalwin() {
         // Implementar lógica para verificar victoria (horizontal, vertical, diagonal).
         return null;
     }

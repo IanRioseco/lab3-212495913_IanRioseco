@@ -15,7 +15,7 @@ public class Menu {
             System.out.println("4. Ver estadísticas generales");
             System.out.println("5. Salir");
 
-            System.out.print("Ingrese su opción: ");
+            System.out.print("Ingrese su opcion: ");
             int option = scanner.nextInt();
             scanner.nextLine(); // Limpia el buffer
 
@@ -32,28 +32,28 @@ public class Menu {
                     break;
                 case 3:
                     if (currentGame != null) {
-                        playMove(currentGame, scanner);
+                        //playMove(currentGame, scanner);
                     } else {
                         System.out.println("Primero debes crear un nuevo juego.");
                     }
                     break;
                 case 4:
                     if (currentGame != null) {
-                        displayStatistics(currentGame);
+                        //displayStatistics(currentGame);
                     } else {
                         System.out.println("Primero debes crear un nuevo juego.");
                     }
                     break;
                 case 5:
-                    System.out.println("\u00bfEstás seguro de que deseas salir? (S/N): ");
+                    System.out.println("¿Estas seguro de que deseas salir? (S/N): ");
                     String confirm = scanner.nextLine().toUpperCase();
                     if (confirm.equals("S")) {
-                        System.out.println("\u00a1Gracias por jugar Conecta4!");
+                        System.out.println("¡Gracias por jugar Conecta4!");
                         return;
                     }
                     break;
                 default:
-                    System.out.println("Opción no válida. Intenta de nuevo.");
+                    System.out.println("Opcion no válida. Intenta de nuevo.");
             }
         }
     }
@@ -62,7 +62,7 @@ public class Menu {
         System.out.println("\n### Crear Nuevo Juego ###");
 
         // Configuración del Jugador 1
-        System.out.println("--- Configuración Jugador 1 ---");
+        System.out.println("--- Configuracion Jugador 1 ---");
         System.out.print("Ingrese ID del jugador 1: ");
         int player1Id = scanner.nextInt();
         scanner.nextLine(); // Limpia el buffer
@@ -72,7 +72,7 @@ public class Menu {
         String player1Color = scanner.nextLine();
 
         // Configuración del Jugador 2
-        System.out.println("--- Configuración Jugador 2 ---");
+        System.out.println("--- Configuracion Jugador 2 ---");
         System.out.print("Ingrese ID del jugador 2: ");
         int player2Id = scanner.nextInt();
         scanner.nextLine(); // Limpia el buffer

@@ -19,7 +19,7 @@ public class Player {
         this.draws = 0;
     }
 
-    public int getId() {
+    public int getId(Player player) {
         return id;
     }
 
