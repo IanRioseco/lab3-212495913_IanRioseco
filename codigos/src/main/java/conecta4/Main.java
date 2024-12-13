@@ -30,5 +30,12 @@ public class Main {
             System.out.println("no hay ganador aun");
         }
 
+        int winnnner = board.entregarganador();
+        if (winnnner != 0) {
+            System.out.println(winnnner);
+        } else {
+            System.out.println("no hay ganador aunnn");
+        }
+
     }
 }

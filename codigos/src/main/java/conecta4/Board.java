@@ -104,6 +104,22 @@ public class Board {
         return 0; // No hay ganador
     }
 
+    public int entregarganador() {
+        int verticalwinner = checkverticalwin();
+        if (verticalwinner != 0) {
+            return verticalwinner;
+        }
+        int horizontalwinner = checkhorizontalwin();
+        if (horizontalwinner != 0) {
+            return horizontalwinner;
+        }
+        int diagonalwinner = checkdiagonalwin();
+        if (diagonalwinner != 0) {
+            return diagonalwinner;
+        }
+        return 0;
+    }
+
 
     public void printBoard() {
         for (String[] row : grid) {

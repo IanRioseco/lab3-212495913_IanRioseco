@@ -10,64 +10,46 @@ public class Game {
     private Board board;
     private Player player1;
     private Player player2;
-    private Player currentPlayer;
+    private int currentTurn;
     private List<String> moveHistory;
+    private boolean flag;
 
-    public Game(Player player1, Player player2, Board board) {
+
+    public Game(Player player1, Player player2, Board board, int currentTurn) {
         this.player1 = player1;
         this.player2 = player2;
-        this.board = board;
-        this.currentPlayer = player1;
+        this.board = new Board();
+        this.currentTurn = 1;
         this.moveHistory = new ArrayList<>();
+
+    }
+    //getters
+
+    //funcion para crear el historial
+    public void createhistory(int column, String colorpiece) {
+        moveHistory.add("(" + column + "," + colorpiece + ")");
+    }
+    //funcion para obtener el historial
+
+    public List<String> getMoveHistory() {
+        return new ArrayList<>(moveHistory);
     }
 
-    public Player getCurrentPlayer() {
-        return currentPlayer;
-    }
+    //ES EMPATE
 
+    // ACTUALIZAR ESTADISTICAS
+
+    // GET CURRENT PLAYER
     public Player getPlayer1() {
-        return player1;
+        return (currentTurn == 1) ? player1 : player2;
     }
 
-    public Player getPlayer2() {
-        return player2;
-    }
-
+    // BOARD GET STATE
     public Board getBoard() {
         return board;
     }
 
-    public boolean makeMove(int column) {
-        if (!board.canPlay()) return false;
+    // END GAME
 
-        Piece piece = new Piece(currentPlayer.getColor());
-        boolean success = board.playPiece(column, piece);
-        if (success) {
-            currentPlayer.decreaseRemainingPieces();
-            moveHistory.add(currentPlayer.getName() + " played at column " + column);
-            switchTurn();
-        }
-        return success;
-    }
-
-    private void switchTurn() {
-        currentPlayer = (currentPlayer == player1) ? player2 : player1;
-    }
-
-    public void printBoard() {
-        board.printBoard();
-    }
-
-    public boolean isDraw() {
-        return !board.canPlay();
-    }
-
-    public Player getWinner() {
-        // Usar lógica para determinar ganador
-        return null;
-    }
-
-    public void endGame() {
-        // Actualizar estadísticas y terminar juego.
-    }
+    // REALIZAR MOVIMIENTO
 }
