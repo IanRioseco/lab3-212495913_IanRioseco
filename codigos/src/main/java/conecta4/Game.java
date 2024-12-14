@@ -24,7 +24,21 @@ public class Game {
 
     }
     //getters
+    public Player getPlayer1(Player player) {
+        return player1;
+    }
+    public Player getPlayer2() {
+        return player2;
+    }
+    public int getCurrentTurn() {
+        return currentTurn;
+    }
+    public boolean getFlag() {
+        return flag;
+    }
 
+
+    // HISTORY
     //funcion para crear el historial
     public void createhistory(int column, String colorpiece) {
         moveHistory.add("(" + column + "," + colorpiece + ")");

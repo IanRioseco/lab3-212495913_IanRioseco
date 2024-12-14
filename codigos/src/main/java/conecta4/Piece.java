@@ -7,6 +7,7 @@ public class Piece {
         this.color = color;
     }
 
+    //OBTENER COLOR
     public String getColor() {
         return color;
     }

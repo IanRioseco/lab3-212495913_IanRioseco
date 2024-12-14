@@ -19,6 +19,8 @@ public class Player {
         this.draws = 0;
     }
 
+    // GETTTERS
+
     public int getId(Player player) {
         return id;
     }

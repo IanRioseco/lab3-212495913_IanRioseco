@@ -5,6 +5,8 @@ public class Board {
     private static final int COLUMNS = 7;
     private String[][] grid;
 
+
+    // FUNCION BOARD
     public Board() {
         grid = new String[ROWS][COLUMNS];
         for (int i = 0; i < ROWS; i++) {
@@ -14,6 +16,7 @@ public class Board {
         }
     }
 
+    // FUNCION SEPUEDEJUAGAR
     public boolean canPlay() {
         for (int j = 0; j < COLUMNS; j++) {
             if (grid[0][j].equals("-")) return true;
@@ -21,6 +24,7 @@ public class Board {
         return false;
     }
 
+    // FUNCION PLAYPIECE
     public boolean playPiece(int column, Piece piece) {
         if (column < 0 || column >= COLUMNS) return false;
         for (int i = ROWS - 1; i >= 0; i--) {
@@ -32,6 +36,7 @@ public class Board {
         return false;
     }
 
+    // FUNCION VICTORIA VERTICAL
     public int checkverticalwin() {
         for (int col = 0; col < COLUMNS; col++) {
             int count = 0;
@@ -53,6 +58,7 @@ public class Board {
         return 0;
     }
 
+    // FUNCION VICTORIA HORIZONTAL
     public int checkhorizontalwin() {
         for (int row = 0; row < ROWS; row++) {
             int count = 0;
@@ -74,6 +80,7 @@ public class Board {
         return 0;
     }
 
+    // FUNCION VICTORIA DIAGONAL
     public int checkdiagonalwin() {
         // Verificar diagonales ascendentes (↗)
         for (int row = 3; row < ROWS; row++) { // Comenzar en la cuarta fila
@@ -104,6 +111,7 @@ public class Board {
         return 0; // No hay ganador
     }
 
+    // FUNCION PARA VERIFICAR GANADOR
     public int entregarganador() {
         int verticalwinner = checkverticalwin();
         if (verticalwinner != 0) {
@@ -121,6 +129,7 @@ public class Board {
     }
 
 
+    // FUNCION PARA MOSTRAR EL TABLERO
     public void printBoard() {
         for (String[] row : grid) {
             for (String cell : row) {
