@@ -1,5 +1,6 @@
 package conecta4;
 
+
 public class Board {
     private static final int ROWS = 6;
     private static final int COLUMNS = 7;
