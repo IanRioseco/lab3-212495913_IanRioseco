@@ -1,9 +1,9 @@
 package conecta4;
 
 public class Player implements PlayerInterface {
-    private int id;
-    private String name;
-    private String color;
+    private final int id;
+    private final String name;
+    private final String color;
     private int wins;
     private int losses;
     private int draws;
