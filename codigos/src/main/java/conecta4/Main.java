@@ -4,38 +4,16 @@ package conecta4;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        // Crear jugadores con fichas suficientes
+        Player player1 = new Player(1, "Juan", "R",0,0,0,21); // Jugador 1
+        Player player2 = new Player(2, "María", "Y",0,0,0, 21); // Jugador 2
         Board board = new Board();
-        Piece redpiece = new Piece("r");
-        Piece yellowpiece = new Piece("y");
+        int currentturn = 1;
 
-        board.playPiece(3, redpiece);
-        board.playPiece(0, yellowpiece);
-        board.playPiece(0, redpiece);
-        board.playPiece(0, yellowpiece);
-        board.playPiece(0, redpiece);
-        board.playPiece(1, yellowpiece);
-        board.playPiece(1, redpiece);
-        board.playPiece(2, yellowpiece);
-        board.playPiece(1, redpiece);
-        board.playPiece(4, yellowpiece);
-        board.playPiece(2, redpiece);
-        board.playPiece(3, yellowpiece);
+        // Crear un juego nuevo
+        Game game = new Game(player1, player2, board, currentturn);
 
-        board.printBoard();
-
-        int winner = board.checkdiagonalwin();
-        if (winner != 0) {
-            System.out.println(winner);
-        } else {
-            System.out.println("no hay ganador aun");
-        }
-
-        int winnnner = board.entregarganador();
-        if (winnnner != 0) {
-            System.out.println(winnnner);
-        } else {
-            System.out.println("no hay ganador aunnn");
-        }
-
+        // Verificar si el juego está en empate al inicio
+        System.out.println("¿Es empate?"); // Debería ser false al inicio
     }
 }

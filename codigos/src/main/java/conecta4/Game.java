@@ -16,23 +16,28 @@ public class Game {
 
 
     public Game(Player player1, Player player2, Board board, int currentTurn) {
-        this.player1 = player1;
-        this.player2 = player2;
+        this.player1 = this.player1;
+        this.player2 = this.player2;
         this.board = new Board();
         this.currentTurn = 1;
         this.moveHistory = new ArrayList<>();
 
     }
+
     //getters
-    public Player getPlayer1(Player player) {
+
+    public Player getPlayer1() {
         return player1;
     }
+
     public Player getPlayer2() {
         return player2;
     }
+
     public int getCurrentTurn() {
         return currentTurn;
     }
+
     public boolean getFlag() {
         return flag;
     }
@@ -50,11 +55,32 @@ public class Game {
     }
 
     //ES EMPATE
+    public boolean esEmpate() {
+        Board board = getBoard();
+        boolean tablerolleno = !board.canPlay();
+        Player p1 = getPlayer1();
+        Player p2 = getPlayer2();
+        int piezasp1 = p1.getRemainingPieces();
+        int piezasp2 = p2.getRemainingPieces();
+
+        if (piezasp1 == 0 && piezasp2 == 0) {
+            return true;
+        }
+
+        if (tablerolleno) {
+            return true;
+        }
+        return false;
+    }
+
+
+
+
 
     // ACTUALIZAR ESTADISTICAS
 
     // GET CURRENT PLAYER
-    public Player getPlayer1() {
+    public Player getCurrentPlayer() {
         return (currentTurn == 1) ? player1 : player2;
     }
 

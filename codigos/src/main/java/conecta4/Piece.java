@@ -1,6 +1,6 @@
 package conecta4;
 
-public class Piece {
+public class Piece implements Pieceinterface{
     private String color;
 
     public Piece (String color) {

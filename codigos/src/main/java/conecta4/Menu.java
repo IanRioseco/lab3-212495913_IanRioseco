@@ -25,7 +25,7 @@ public class Menu {
                     break;
                 case 2:
                     if (currentGame != null) {
-                        currentGame.printBoard();
+                        //currentGame.printGame();
                     } else {
                         System.out.println("Primero debes crear un nuevo juego.");
                     }
