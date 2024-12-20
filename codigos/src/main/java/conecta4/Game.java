@@ -3,6 +3,7 @@ package conecta4;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Clase que representa el flujo del juego Conecta4.
  */
@@ -16,8 +17,8 @@ public class Game {
 
 
     public Game(Player player1, Player player2, Board board, int currentTurn) {
-        this.player1 = this.player1;
-        this.player2 = this.player2;
+        this.player1 = player1;
+        this.player2 = player2;
         this.board = new Board();
         this.currentTurn = 1;
         this.moveHistory = new ArrayList<>();
@@ -60,22 +61,15 @@ public class Game {
         boolean tablerolleno = !board.canPlay();
         Player p1 = getPlayer1();
         Player p2 = getPlayer2();
-        int piezasp1 = p1.getRemainingPieces();
-        int piezasp2 = p2.getRemainingPieces();
+        int pip1 = p1.getRemainingPieces();
+        int pip2 = p2.getRemainingPieces();
 
-        if (piezasp1 == 0 && piezasp2 == 0) {
+        if (pip1 == 0 && pip2 == 0) {
             return true;
         }
 
-        if (tablerolleno) {
-            return true;
-        }
-        return false;
+        return tablerolleno;
     }
-
-
-
-
 
     // ACTUALIZAR ESTADISTICAS
 
