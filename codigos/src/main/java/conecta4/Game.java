@@ -13,7 +13,7 @@ public class Game {
     private Player player2;
     private int currentTurn;
     private List<String> moveHistory;
-    private boolean flag;
+    private boolean flag = false;
 
 
     public Game(Player player1, Player player2, Board board, int currentTurn) {
@@ -38,11 +38,6 @@ public class Game {
     public int getCurrentTurn() {
         return currentTurn;
     }
-
-    public boolean getFlag() {
-        return flag;
-    }
-
 
     // HISTORY
     //funcion para crear el historial
@@ -84,6 +79,86 @@ public class Game {
     }
 
     // END GAME
+    public void endGame() {
+        Board board = getBoard();
+        int winner = board.entregarganador();
+        Player p1 = getPlayer1();
+        Player p2 = getPlayer2();
+
+
+        if (winner == 1) {
+            p1.updateStatistics(true,false);
+            p2.updateStatistics(false,false);
+        } else if (winner == 2) {
+            p1.updateStatistics(false,false);
+            p2.updateStatistics(true,false);
+        } else if (esEmpate()) {
+            p1.updateStatistics(false,true);
+            p2.updateStatistics(false,true);
+        }
+    }
 
     // REALIZAR MOVIMIENTO
+    public void realizarmovimieno(Player player, int column) {
+        // DEFINICION DE VARIABLES
+        Board board = getBoard();
+        boolean tablerolleno = !board.canPlay();
+        Player p1 = getPlayer1();
+        Player p2 = getPlayer2();
+        int piezasp1 = p1.getRemainingPieces();
+        int id1 = p1.getId();
+        int id2 = p2.getId();
+        int piezasp2 = p2.getRemainingPieces();
+        int piezasplayer = player.getRemainingPieces();
+        String pieceplayer = player.getColor();
+        int idplayer = player.getId();
+        int actualTurn = getCurrentTurn();
+
+        Player playeraux = player;
+
+        // COMPROBACIONES
+
+        if (flag) {
+
+        }
+
+        if (!tablerolleno) {
+            System.out.println("No se puede realizar movimieno el tablero esta lleno");
+        }
+
+        if (piezasplayer == 0 ) {
+            System.out.println("El jugador no tiene fichas disponibles");
+        }
+
+        if ((actualTurn == 1 && player != player1) || (actualTurn == 2 && player != player2)) {
+            System.out.println("no es turno del jugador " + actualTurn);
+            return;
+        }
+
+        if (column > 6) {
+            System.out.println("Columna incorrecta, Debe ingresar una columna entre 0-6 ");
+        }
+
+        board.playPiece(column, pieceplayer);
+
+        if (idplayer == id1) {
+            playeraux = p1;
+        } else {
+            playeraux = p2;
+        }
+
+        //VERIFICACION DE VICTORIA
+        int ganador = board.entregarganador();
+        if (ganador != 0) {
+            endGame();
+            flag = true;
+            return;
+        }
+        // VERIFICACION DE EMPATE
+        if (esEmpate()) {
+            endGame();
+            flag = true;
+            return;
+        }
+    }
 }

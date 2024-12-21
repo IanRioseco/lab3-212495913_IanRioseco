@@ -26,11 +26,11 @@ public class Board {
     }
 
     // FUNCION PLAYPIECE
-    public boolean playPiece(int column, Piece piece) {
+    public boolean playPiece(int column, String piece) {
         if (column < 0 || column >= COLUMNS) return false;
         for (int i = ROWS - 1; i >= 0; i--) {
             if (grid[i][column].equals("-")) {
-                grid[i][column] = piece.getColor();
+                grid[i][column] = piece;
                 return true;
             }
         }
