@@ -1,5 +1,6 @@
 package conecta4;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Menu {
@@ -25,21 +26,22 @@ public class Menu {
                     break;
                 case 2:
                     if (currentGame != null) {
-                        //currentGame.printGame();
+                        System.out.println("\n### Estado actual del tablero ###)");
+                        currentGame.getBoard().printBoard();
                     } else {
                         System.out.println("Primero debes crear un nuevo juego.");
                     }
                     break;
                 case 3:
                     if (currentGame != null) {
-                        //playMove(currentGame, scanner);
+                        playMove(currentGame, scanner);
                     } else {
                         System.out.println("Primero debes crear un nuevo juego.");
                     }
                     break;
                 case 4:
                     if (currentGame != null) {
-                        //displayStatistics(currentGame);
+                        displayStatistics(currentGame);
                     } else {
                         System.out.println("Primero debes crear un nuevo juego.");
                     }
@@ -89,7 +91,44 @@ public class Menu {
         // Crear jugadores y juego
         Player player1 = new Player(player1Id, player1Name, player1Color, 0, 0, 0, piecesPerPlayer);
         Player player2 = new Player(player2Id, player2Name, player2Color, 0, 0, 0, piecesPerPlayer);
-        return null;
+        Game game = new Game(player1, player2, new Board(), 1);
+
+        System.out.println("\n### Juego creado exitosamente ###");
+        return game;
         
+    }
+
+    private static void playMove(Game currentGame, Scanner scanner) {
+        Player currentPlayer = currentGame.getCurrentPlayer();
+        Player p1 = currentGame.getPlayer1();
+        String color= "";
+        if (currentPlayer == p1 ) {
+            color = "Rojo";
+        } else {
+            color = "Amarillo";
+        }
+        System.out.println("\n### Realizar jugada ###");
+        System.out.println("Turno de: "+currentPlayer.getName() + " ("+color+"): ");
+        System.out.println("Fichas restantes: "+ currentPlayer.getRemainingPieces());
+        System.out.println("Seleccione una columna (0-6): ");
+
+        int column = scanner.nextInt();
+        currentGame.realizarmovimiento(currentPlayer, column);
+    }
+    private static void displayStatistics(Game currentGame) {
+        System.out.println("\n### Estaditicas Generales ###");
+
+        Player player1= currentGame.getPlayer1();
+        Player player2= currentGame.getPlayer2();
+
+        System.out.println(player1.getName() + "(" + player1.getColor() + "): ");
+        System.out.println("- Victorias: " + player1.getWins());
+        System.out.println("- Derrotas: " + player1.getLosses());
+        System.out.println("- Empates: " + player1.getDraws());
+
+        System.out.println(player2.getName() + "(" + player2.getColor() + "): ");
+        System.out.println("- Victorias: " + player2.getWins());
+        System.out.println("- Derrotas: " + player2.getLosses());
+        System.out.println("- Empates: " + player2.getDraws());
     }
 }

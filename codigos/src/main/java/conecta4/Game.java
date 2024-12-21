@@ -96,10 +96,11 @@ public class Game {
             p1.updateStatistics(false,true);
             p2.updateStatistics(false,true);
         }
+        System.out.println("Juego finalizado");
     }
 
     // REALIZAR MOVIMIENTO
-    public void realizarmovimieno(Player player, int column) {
+    public void realizarmovimiento(Player player, int column) {
         // DEFINICION DE VARIABLES
         Board board = getBoard();
         boolean tablerolleno = !board.canPlay();
@@ -118,11 +119,8 @@ public class Game {
 
         // COMPROBACIONES
 
-        if (flag) {
 
-        }
-
-        if (!tablerolleno) {
+        if (tablerolleno) {
             System.out.println("No se puede realizar movimieno el tablero esta lleno");
         }
 
@@ -130,9 +128,11 @@ public class Game {
             System.out.println("El jugador no tiene fichas disponibles");
         }
 
-        if ((actualTurn == 1 && player != player1) || (actualTurn == 2 && player != player2)) {
+        if ((actualTurn == 1 && player != player1)) {
             System.out.println("no es turno del jugador " + actualTurn);
-            return;
+        } else if (currentTurn == 2 && player != player2) {
+            System.out.println("no es turno del jugador " + actualTurn);
+
         }
 
         if (column > 6) {
@@ -140,6 +140,8 @@ public class Game {
         }
 
         board.playPiece(column, pieceplayer);
+        System.out.println("Movimiento realizado:");
+        board.printBoard();
 
         if (idplayer == id1) {
             playeraux = p1;

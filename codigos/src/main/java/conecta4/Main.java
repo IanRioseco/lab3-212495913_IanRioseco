@@ -5,8 +5,8 @@ package conecta4;
 public class Main {
     public static void main(String[] args) {
         // Crear jugadores con fichas suficientes
-        Player player1 = new Player(1, "Juan", "R",0,0,0,0); // Jugador 1
-        Player player2 = new Player(2, "María", "Y",0,0,0, 0); // Jugador 2
+        Player player1 = new Player(1, "Juan", "r" ,0,0,0,1); // Jugador 1
+        Player player2 = new Player(2, "María", "y",0,0,0, 0); // Jugador 2
         Board board = new Board();
         int currentturn = 1;
 
@@ -19,5 +19,9 @@ public class Main {
         } else {
             System.out.println("No es Empate");
         }
+
+        game.realizarmovimiento(player1, 3);
+        game.getBoard().printBoard();
+        game.endGame();
     }
 }
