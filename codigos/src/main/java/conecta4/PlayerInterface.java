@@ -5,7 +5,7 @@ public interface PlayerInterface {
     String getName();
     String getColor();
     int getRemainingPieces();
-    void decrementRemainingPieces();
+    void decreaseRemainingPieces();
     void updateStatistics();
     int getWins();
     int getLosses();

@@ -85,18 +85,19 @@ public class Game {
         Player p1 = getPlayer1();
         Player p2 = getPlayer2();
 
-
-        if (winner == 1) {
-            p1.updateStatistics(true,false);
-            p2.updateStatistics(false,false);
-        } else if (winner == 2) {
-            p1.updateStatistics(false,false);
-            p2.updateStatistics(true,false);
-        } else if (esEmpate()) {
-            p1.updateStatistics(false,true);
-            p2.updateStatistics(false,true);
+        if (flag) {
+            if (winner == 1) {
+                p1.updateStatistics(true,false);
+                p2.updateStatistics(false,false);
+                System.out.println();
+            } else if (winner == 2) {
+                p1.updateStatistics(false,false);
+                p2.updateStatistics(true,false);
+            } else if (esEmpate()) {
+                p1.updateStatistics(false,true);
+                p2.updateStatistics(false,true);
+            }
         }
-        System.out.println("Juego finalizado");
     }
 
     // REALIZAR MOVIMIENTO
@@ -114,11 +115,13 @@ public class Game {
         String pieceplayer = player.getColor();
         int idplayer = player.getId();
         int actualTurn = getCurrentTurn();
-
         Player playeraux = player;
 
         // COMPROBACIONES
 
+        if (flag) {
+            System.out.println("Juego finalizado");
+        }
 
         if (tablerolleno) {
             System.out.println("No se puede realizar movimieno el tablero esta lleno");
@@ -149,18 +152,24 @@ public class Game {
             playeraux = p2;
         }
 
+        playeraux.decreaseRemainingPieces();
+        createhistory(column,pieceplayer);
+        switchTurn();
+
         //VERIFICACION DE VICTORIA
         int ganador = board.entregarganador();
         if (ganador != 0) {
             endGame();
             flag = true;
-            return;
         }
         // VERIFICACION DE EMPATE
         if (esEmpate()) {
             endGame();
             flag = true;
-            return;
         }
     }
+    private void switchTurn() {
+        currentTurn = (currentTurn == 1) ? 2 : 1;
+    }
 }
+

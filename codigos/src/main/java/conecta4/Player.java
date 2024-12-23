@@ -59,18 +59,13 @@ public class Player implements PlayerInterface {
         return remainingPieces;
     }
 
-    @Override
-    public void decrementRemainingPieces() {
 
+    public void decreaseRemainingPieces() {
+        if (remainingPieces > 0) remainingPieces--;
     }
 
     @Override
     public void updateStatistics() {
-
-    }
-
-    public void decreaseRemainingPieces() {
-        if (remainingPieces > 0) remainingPieces--;
     }
 
     public void updateStatistics(boolean isWin, boolean isDraw) {

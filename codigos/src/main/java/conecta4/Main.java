@@ -5,8 +5,8 @@ package conecta4;
 public class Main {
     public static void main(String[] args) {
         // Crear jugadores con fichas suficientes
-        Player player1 = new Player(1, "Juan", "r" ,0,0,0,1); // Jugador 1
-        Player player2 = new Player(2, "María", "y",0,0,0, 0); // Jugador 2
+        Player player1 = new Player(1, "Juan", "r" ,0,0,0,21); // Jugador 1
+        Player player2 = new Player(2, "María", "y",0,0,0, 21); // Jugador 2
         Board board = new Board();
         int currentturn = 1;
 
@@ -21,7 +21,14 @@ public class Main {
         }
 
         game.realizarmovimiento(player1, 3);
+        game.realizarmovimiento(player2, 4);
+        game.realizarmovimiento(player1, 3);
+        game.realizarmovimiento(player2, 6);
+        game.realizarmovimiento(player1, 3);
+        game.realizarmovimiento(player2, 1);
+        game.realizarmovimiento(player1, 3);
         game.getBoard().printBoard();
         game.endGame();
+
     }
 }
