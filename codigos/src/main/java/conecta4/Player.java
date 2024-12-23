@@ -20,41 +20,38 @@ public class Player implements PlayerInterface {
     }
 
     // GETTTERS
-    public int getId(Player player) {
+
+
+    public int getId() {
         return id;
     }
 
-    @Override
-    public int getId() {
-        return 0;
-    }
 
-    @Override
     public String getName() {
         return name;
     }
 
-    @Override
+
     public String getColor() {
         return color;
     }
 
-    @Override
+
     public int getWins() {
         return wins;
     }
 
-    @Override
+
     public int getLosses() {
         return losses;
     }
 
-    @Override
+
     public int getDraws() {
         return draws;
     }
 
-    @Override
+
     public int getRemainingPieces() {
         return remainingPieces;
     }
@@ -62,10 +59,6 @@ public class Player implements PlayerInterface {
 
     public void decreaseRemainingPieces() {
         if (remainingPieces > 0) remainingPieces--;
-    }
-
-    @Override
-    public void updateStatistics() {
     }
 
     public void updateStatistics(boolean isWin, boolean isDraw) {

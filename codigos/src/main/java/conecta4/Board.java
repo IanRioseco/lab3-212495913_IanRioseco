@@ -27,10 +27,11 @@ public class Board {
 
     // FUNCION PLAYPIECE
     public boolean playPiece(int column, String piece) {
+        String auxpiece = piece.substring(0, 1);
         if (column < 0 || column >= COLUMNS) return false;
         for (int i = ROWS - 1; i >= 0; i--) {
             if (grid[i][column].equals("-")) {
-                grid[i][column] = piece;
+                grid[i][column] = auxpiece;
                 return true;
             }
         }

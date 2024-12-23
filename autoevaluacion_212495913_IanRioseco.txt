@@ -1,0 +1,43 @@
+Escala:
+0: No realizado.
+0.25: Implementación con problemas mayores (funciona 25% de las veces o no funciona)
+0.5: Implementación con funcionamiento irregular (funciona 50% de las veces)
+0.75: Implementación con problemas menores (funciona 75% de las veces)
+1: Implementación completa sin problemas (funciona 100% de las veces)
+
+TDA / Función / Puntaje
+TDA Player-constructor / player / 1
+TDA Player-selector / getId / 1
+TDA Player-selector / getName / 1
+TDA Player-selector / getColor / 1
+TDA Player-selector / getWins / 1
+TDA Player-selector / getLosses / 1
+TDA Player-selector / getDraws / 1
+TDA Player-selector / getRemainingPieces / 1
+TDA Player-otros / updateStatistics / 1
+TDA Player-otros / decreaseRemainingPieces / 1
+
+TDA Piece-constructor / piece / 1
+TDA Piece-selector / getColor / 1
+
+TDA Board-constructor / board / 1
+TDA Board-otros / canplay / 1
+TDA Board-modificador / playPiece / 1
+TDA Board-otros / checkverticalwin / 1
+TDA Board-otros / checkhorizontalwin / 1
+TDA Board-otros / checkdiagonalwin / 1
+TDA Board-otros / entregarganador / 1
+
+TDA Game-constructor / game / 1
+TDA Game-otros / createHistory / 1
+TDA Game-otros / esEmpate / 1
+TDA Game-selector / getCurrentTurn / 1
+TDA Game-selector / getCurrentPlayer / 1
+TDA Game-selector / getPlayer1 / 1
+TDA Game-selector / getPlayer2 / 1
+TDA Game-selector / game-get-board / 1
+TDA Game-selector / getMoveHistory / 1
+TDA Game-modificador / endGame / 1
+TDA Game-modificador / realizarMovimiento / 1
+
+

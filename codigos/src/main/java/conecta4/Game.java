@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Clase que representa el flujo del juego Conecta4.
  */
-public class Game {
+public class Game implements Gameinterface {
     private Board board;
     private Player player1;
     private Player player2;
@@ -41,13 +41,13 @@ public class Game {
 
     // HISTORY
     //funcion para crear el historial
+
     public void createhistory(int column, String colorpiece) {
         moveHistory.add("(" + column + "," + colorpiece + ")");
     }
     //funcion para obtener el historial
-
-    public List<String> getMoveHistory() {
-        return new ArrayList<>(moveHistory);
+    public List<String> getmovehistory() {
+        return moveHistory;
     }
 
     //ES EMPATE
@@ -66,7 +66,6 @@ public class Game {
         return tablerolleno;
     }
 
-    // ACTUALIZAR ESTADISTICAS
 
     // GET CURRENT PLAYER
     public Player getCurrentPlayer() {
@@ -80,7 +79,7 @@ public class Game {
 
     // END GAME
     public void endGame() {
-        Board board = getBoard();
+        var board = getBoard();
         int winner = board.entregarganador();
         Player p1 = getPlayer1();
         Player p2 = getPlayer2();
@@ -145,6 +144,9 @@ public class Game {
         board.playPiece(column, pieceplayer);
         System.out.println("Movimiento realizado:");
         board.printBoard();
+
+        //  Actualizar historial
+
 
         if (idplayer == id1) {
             playeraux = p1;

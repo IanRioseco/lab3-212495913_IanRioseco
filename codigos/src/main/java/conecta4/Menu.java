@@ -26,7 +26,7 @@ public class Menu {
                     break;
                 case 2:
                     if (currentGame != null) {
-                        System.out.println("\n### Estado actual del tablero ###)");
+                        System.out.println("\n### Estado actual del tablero ###");
                         currentGame.getBoard().printBoard();
                     } else {
                         System.out.println("Primero debes crear un nuevo juego.");
@@ -61,7 +61,7 @@ public class Menu {
                     }
                     break;
                 case 5:
-                    System.out.println("¿Estas seguro de que deseas salir? (S/N): ");
+                    System.out.println("\n¿Estas seguro de que deseas salir? (S/N): ");
                     String confirm = scanner.nextLine().toUpperCase();
                     if (confirm.equals("S")) {
                         System.out.println("¡Gracias por jugar Conecta4!");
@@ -79,26 +79,26 @@ public class Menu {
 
         // Configuración del Jugador 1
         System.out.println("--- Configuracion Jugador 1 ---");
-        System.out.print("Ingrese ID del jugador 1: ");
+        System.out.print("\nIngrese ID del jugador 1: ");
         int player1Id = scanner.nextInt();
         scanner.nextLine(); // Limpia el buffer
-        System.out.print("Ingrese nombre del jugador 1: ");
+        System.out.print("\nIngrese nombre del jugador 1: ");
         String player1Name = scanner.nextLine();
-        System.out.print("Ingrese color del jugador 1 (Ej: Rojo --> R): ");
+        System.out.print("\nIngrese color del jugador 1 (Ej: Rojo): ");
         String player1Color = scanner.nextLine();
 
         // Configuración del Jugador 2
-        System.out.println("--- Configuracion Jugador 2 ---");
-        System.out.print("Ingrese ID del jugador 2: ");
+        System.out.println("\n--- Configuracion Jugador 2 ---");
+        System.out.print("\nIngrese ID del jugador 2: ");
         int player2Id = scanner.nextInt();
         scanner.nextLine(); // Limpia el buffer
-        System.out.print("Ingrese nombre del jugador 2: ");
+        System.out.print("\nIngrese nombre del jugador 2: ");
         String player2Name = scanner.nextLine();
-        System.out.print("Ingrese color del jugador 2 (Ej: Amarillo): ");
+        System.out.print("\nIngrese color del jugador 2 (Ej: Amarillo): ");
         String player2Color = scanner.nextLine();
 
         // Configuración del número de fichas
-        System.out.print("Ingrese cantidad de fichas por jugador (4-21): ");
+        System.out.print("\nIngrese cantidad de fichas por jugador (4-21): ");
         int piecesPerPlayer = scanner.nextInt();
         scanner.nextLine(); // Limpia el buffer
 
@@ -115,14 +115,8 @@ public class Menu {
     private static void playMove(Game currentGame, Scanner scanner) {
         Player currentPlayer = currentGame.getCurrentPlayer();
         Player p1 = currentGame.getPlayer1();
-        String color= "";
-        if (currentPlayer == p1 ) {
-            color = "Rojo";
-        } else {
-            color = "Amarillo";
-        }
         System.out.println("\n### Realizar jugada ###");
-        System.out.println("Turno de: "+currentPlayer.getName() + " ("+color+"): ");
+        System.out.println("Turno de: "+currentPlayer.getName() + " ("+currentPlayer.getColor()+"): ");
         System.out.println("Fichas restantes: "+ currentPlayer.getRemainingPieces());
         System.out.println("Seleccione una columna (0-6): ");
 
@@ -136,12 +130,12 @@ public class Menu {
         Player player1 = currentGame.getPlayer1();
         Player player2 = currentGame.getPlayer2();
 
-        System.out.println(player1.getName() + "(ROJO): ");
+        System.out.println(player1.getName() + "("+player1.getColor()+"): ");
         System.out.println("- Victorias: " + player1.getWins());
         System.out.println("- Derrotas: " + player1.getLosses());
         System.out.println("- Empates: " + player1.getDraws());
 
-        System.out.println(player2.getName() + "(AMARILLO): ");
+        System.out.println(player2.getName() + "("+player2.getColor()+"): ");
         System.out.println("- Victorias: " + player2.getWins());
         System.out.println("- Derrotas: " + player2.getLosses());
         System.out.println("- Empates: " + player2.getDraws());
