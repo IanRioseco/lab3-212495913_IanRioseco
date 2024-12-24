@@ -27,6 +27,10 @@ public class Game implements Gameinterface {
 
     //getters
 
+    public boolean getFlag() {
+        return flag;
+    }
+
     public Player getPlayer1() {
         return player1;
     }
@@ -84,6 +88,7 @@ public class Game implements Gameinterface {
         Player p1 = getPlayer1();
         Player p2 = getPlayer2();
 
+
         if (flag) {
             if (winner == 1) {
                 p1.updateStatistics(true,false);
@@ -96,6 +101,8 @@ public class Game implements Gameinterface {
                 p1.updateStatistics(false,true);
                 p2.updateStatistics(false,true);
             }
+        } else {
+            System.out.println("JUEGO TERMINADO");
         }
     }
 

@@ -13,5 +13,6 @@ public interface Gameinterface {
     void realizarmovimiento(Player player, int column);
     Board getBoard();
     Player getCurrentPlayer();
+    boolean getFlag();
     
 }

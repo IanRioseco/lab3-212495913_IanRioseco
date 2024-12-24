@@ -48,7 +48,7 @@ public class Board {
                 if (!currentColor.equals("-") && currentColor.equals(lastColor)) {
                     count++;
                     if (count == 4){
-                        if (lastColor.equals("r")) return 1;
+                        if (lastColor.equals("R")) return 1;
                         else return 2;
                     }
                 } else {
@@ -70,7 +70,7 @@ public class Board {
                 if (!currentColor.equals("-") && currentColor.equals(lastColor)) {
                     count++;
                     if (count == 4){
-                        if (lastColor.equals("r")) return 1;
+                        if (lastColor.equals("R")) return 1;
                         else return 2;
                     }
                 } else {
@@ -92,7 +92,7 @@ public class Board {
                         currentColor.equals(grid[row - 1][col + 1]) &&
                         currentColor.equals(grid[row - 2][col + 2]) &&
                         currentColor.equals(grid[row - 3][col + 3])) {
-                    return currentColor.equals("r") ? 1 : 2; // Considera el color correcto
+                    return currentColor.equals("R") ? 1 : 2; // Considera el color correcto
                 }
             }
         }
@@ -105,7 +105,7 @@ public class Board {
                         currentColor.equals(grid[row + 1][col + 1]) &&
                         currentColor.equals(grid[row + 2][col + 2]) &&
                         currentColor.equals(grid[row + 3][col + 3])) {
-                    return currentColor.equals("r") ? 1 : 2; // Considera el color correcto
+                    return currentColor.equals("R") ? 1 : 2; // Considera el color correcto
                 }
             }
         }

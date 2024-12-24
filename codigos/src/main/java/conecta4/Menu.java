@@ -1,6 +1,5 @@
 package conecta4;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Menu {
@@ -34,13 +33,17 @@ public class Menu {
                     break;
                 case 3:
                     if (currentGame != null) {
+                        if (currentGame.getFlag()) {
+                            System.out.println("El juego ya ha terminado no se puede realizar mas movimientos. ");
+                            break;
+                        }
                         playMove(currentGame, scanner);
                         int winner = currentGame.getBoard().entregarganador();
 
                         if (winner != 0) {
                             currentGame.endGame();
                             System.out.println("\n ¡VICTORIA! El jugador " +
-                                    (winner == 1 ? currentGame.getPlayer1().getName() : currentGame.getPlayer2().getName() +
+                                    (winner == 1 ? currentGame.getPlayer2().getName() : currentGame.getPlayer1().getName() +
                                             " ha ganado"));
                             break;
                         }
@@ -74,7 +77,7 @@ public class Menu {
         }
     }
 
-    private static Game createNewGame(Scanner scanner) {
+    public static Game createNewGame(Scanner scanner) {
         System.out.println("\n### Crear Nuevo Juego ###");
 
         // Configuración del Jugador 1
@@ -84,7 +87,7 @@ public class Menu {
         scanner.nextLine(); // Limpia el buffer
         System.out.print("\nIngrese nombre del jugador 1: ");
         String player1Name = scanner.nextLine();
-        System.out.print("\nIngrese color del jugador 1 (Ej: Rojo): ");
+        System.out.print("\nIngrese color del jugador 1 (Rojo 0 Amarillo): ");
         String player1Color = scanner.nextLine();
 
         // Configuración del Jugador 2
@@ -94,7 +97,7 @@ public class Menu {
         scanner.nextLine(); // Limpia el buffer
         System.out.print("\nIngrese nombre del jugador 2: ");
         String player2Name = scanner.nextLine();
-        System.out.print("\nIngrese color del jugador 2 (Ej: Amarillo): ");
+        System.out.print("\nIngrese color del jugador 2 (Rojo 0 Amarillo (sin repetir el de jugador 1): ");
         String player2Color = scanner.nextLine();
 
         // Configuración del número de fichas
@@ -109,12 +112,10 @@ public class Menu {
 
         System.out.println("\n### Juego creado exitosamente ###");
         return game;
-        
     }
 
-    private static void playMove(Game currentGame, Scanner scanner) {
+    public static void playMove(Game currentGame, Scanner scanner) {
         Player currentPlayer = currentGame.getCurrentPlayer();
-        Player p1 = currentGame.getPlayer1();
         System.out.println("\n### Realizar jugada ###");
         System.out.println("Turno de: "+currentPlayer.getName() + " ("+currentPlayer.getColor()+"): ");
         System.out.println("Fichas restantes: "+ currentPlayer.getRemainingPieces());
@@ -124,7 +125,7 @@ public class Menu {
         currentGame.realizarmovimiento(currentPlayer, column);
 
     }
-    private static void displayStatistics(Game currentGame) {
+    public static void displayStatistics(Game currentGame) {
         System.out.println("\n### Estaditicas Generales ###");
 
         Player player1 = currentGame.getPlayer1();
