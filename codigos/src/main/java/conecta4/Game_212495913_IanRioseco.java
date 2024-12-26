@@ -9,13 +9,13 @@ import java.util.List;
  */
 /**
  * Clase que representa un juego de tipo Connect4.
- * Implementa {@link GameInterface}.
+ * Implementa {@link GameInterface_212495913_IanRioseco}.
  * Gestiona el tablero, jugadores, turnos, historial de movimientos y estado del juego.
  */
-public class Game implements GameInterface {
-    private Board board;
-    private Player player1;
-    private Player player2;
+public class Game_212495913_IanRioseco implements GameInterface_212495913_IanRioseco {
+    private Board_212495913_IanRioseco board;
+    private Player_212495913_IanRioseco player1;
+    private Player_212495913_IanRioseco player2;
     private int currentTurn;
     private List<String> moveHistory;
     private boolean flag = false;
@@ -28,10 +28,10 @@ public class Game implements GameInterface {
      * @param board el tablero del juego.
      * @param currentTurn el turno inicial del juego (1 para jugador1, 2 para jugador2).
      */
-    public Game(Player player1, Player player2, Board board, int currentTurn) {
+    public Game_212495913_IanRioseco(Player_212495913_IanRioseco player1, Player_212495913_IanRioseco player2, Board_212495913_IanRioseco board, int currentTurn) {
         this.player1 = player1;
         this.player2 = player2;
-        this.board = new Board();
+        this.board = new Board_212495913_IanRioseco();
         this.currentTurn = 1;
         this.moveHistory = new ArrayList<>();
     }
@@ -50,7 +50,7 @@ public class Game implements GameInterface {
      *
      * @return el objeto del primer jugador.
      */
-    public Player getPlayer1() {
+    public Player_212495913_IanRioseco getPlayer1() {
         return player1;
     }
 
@@ -59,7 +59,7 @@ public class Game implements GameInterface {
      *
      * @return el objeto del segundo jugador.
      */
-    public Player getPlayer2() {
+    public Player_212495913_IanRioseco getPlayer2() {
         return player2;
     }
 
@@ -97,10 +97,10 @@ public class Game implements GameInterface {
      * @return true si es un empate, de lo contrario false.
      */
     public boolean esEmpate() {
-        Board board = getBoard();
+        Board_212495913_IanRioseco board = getBoard();
         boolean tablerolleno = !board.canPlay();
-        Player p1 = getPlayer1();
-        Player p2 = getPlayer2();
+        Player_212495913_IanRioseco p1 = getPlayer1();
+        Player_212495913_IanRioseco p2 = getPlayer2();
         int pip1 = p1.getRemainingPieces();
         int pip2 = p2.getRemainingPieces();
 
@@ -115,7 +115,7 @@ public class Game implements GameInterface {
      *
      * @return el jugador actual.
      */
-    public Player getCurrentPlayer() {
+    public Player_212495913_IanRioseco getCurrentPlayer() {
         return (currentTurn == 1) ? player1 : player2;
     }
 
@@ -124,7 +124,7 @@ public class Game implements GameInterface {
      *
      * @return el objeto del tablero.
      */
-    public Board getBoard() {
+    public Board_212495913_IanRioseco getBoard() {
         return board;
     }
 
@@ -134,8 +134,8 @@ public class Game implements GameInterface {
     public void endGame() {
         var board = getBoard();
         int winner = board.entregarganador();
-        Player p1 = getPlayer1();
-        Player p2 = getPlayer2();
+        Player_212495913_IanRioseco p1 = getPlayer1();
+        Player_212495913_IanRioseco p2 = getPlayer2();
 
         if (flag) {
             if (winner == 1) {
@@ -148,6 +148,7 @@ public class Game implements GameInterface {
                 p1.updateStatistics(false, true);
                 p2.updateStatistics(false, true);
             }
+
         } else {
             System.out.println("JUEGO TERMINADO");
         }
@@ -160,11 +161,11 @@ public class Game implements GameInterface {
      * @param player el jugador que realiza el movimiento.
      * @param column la columna donde se colocará la pieza.
      */
-    public void realizarmovimiento(Player player, int column) {
-        Board board = getBoard();
+    public void realizarmovimiento(Player_212495913_IanRioseco player, int column) {
+        Board_212495913_IanRioseco board = getBoard();
         boolean tablerolleno = !board.canPlay();
-        Player p1 = getPlayer1();
-        Player p2 = getPlayer2();
+        Player_212495913_IanRioseco p1 = getPlayer1();
+        Player_212495913_IanRioseco p2 = getPlayer2();
         int piezasplayer = player.getRemainingPieces();
         String pieceplayer = player.getColor();
         int actualTurn = getCurrentTurn();

@@ -2,10 +2,10 @@ package conecta4;
 
 /**
  * Representa una pieza en el juego.
- * Implementa {@link PieceInterface}.
+ * Implementa {@link PieceInterface_212495913_IanRioseco}.
  * Esta clase almacena el color de la pieza.
  */
-public class Piece implements PieceInterface {
+public class Piece_212495913_IanRioseco implements PieceInterface_212495913_IanRioseco {
     private String color;
 
     /**
@@ -13,7 +13,7 @@ public class Piece implements PieceInterface {
      *
      * @param color el color de la pieza.
      */
-    public Piece(String color) {
+    public Piece_212495913_IanRioseco(String color) {
         this.color = color;
     }
 

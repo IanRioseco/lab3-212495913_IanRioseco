@@ -5,7 +5,7 @@ package conecta4;
  * Clase que representa el tablero de juego para Connect4.
  * Gestiona el estado del tablero, movimientos y verificación de condiciones de victoria.
  */
-public class Board {
+public class Board_212495913_IanRioseco {
     private static final int ROWS = 6;
     private static final int COLUMNS = 7;
     private String[][] grid;
@@ -14,7 +14,7 @@ public class Board {
      * Constructor para inicializar el tablero vacío.
      * Llena la cuadrícula con el carácter "-" que representa una celda vacía.
      */
-    public Board() {
+    public Board_212495913_IanRioseco() {
         grid = new String[ROWS][COLUMNS];
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLUMNS; j++) {

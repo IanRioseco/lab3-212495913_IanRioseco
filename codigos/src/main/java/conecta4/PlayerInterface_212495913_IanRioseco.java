@@ -1,6 +1,6 @@
 package conecta4;
 
-public interface PlayerInterface {
+public interface PlayerInterface_212495913_IanRioseco {
     int getId();
     String getName();
     String getColor();

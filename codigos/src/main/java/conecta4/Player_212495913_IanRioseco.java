@@ -2,11 +2,11 @@ package conecta4;
 
 /**
  * Representa un jugador en el juego.
- * Implementa {@link PlayerInterface}.
+ * Implementa {@link PlayerInterface_212495913_IanRioseco}.
  * Esta clase contiene información sobre la identidad del jugador, su color,
  * estadísticas del juego y las piezas restantes.
  */
-public class Player implements PlayerInterface {
+public class Player_212495913_IanRioseco implements PlayerInterface_212495913_IanRioseco {
     private final int id;
     private final String name;
     private final String color;
@@ -26,7 +26,7 @@ public class Player implements PlayerInterface {
      * @param draws la cantidad inicial de empates del jugador.
      * @param remainingPieces la cantidad inicial de piezas disponibles para el jugador.
      */
-    public Player(int id, String name, String color, int wins, int losses, int draws, int remainingPieces) {
+    public Player_212495913_IanRioseco(int id, String name, String color, int wins, int losses, int draws, int remainingPieces) {
         this.id = id;
         this.name = name;
         this.color = color;

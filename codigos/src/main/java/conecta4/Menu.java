@@ -2,10 +2,6 @@ package conecta4;
 
 import java.util.Scanner;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 /**
  * Clase Menu que implementa el sistema principal de Conecta4.
  * Contiene el menú interactivo que permite gestionar el juego, incluyendo crear juegos,
@@ -15,7 +11,7 @@ public class Menu {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Game currentGame = null; // Variable para mantener el juego actual en ejecución.
+        Game_212495913_IanRioseco currentGame = null; // Variable para mantener el juego actual en ejecución.
 
         while (true) {
             // Menú principal del juego
@@ -103,7 +99,7 @@ public class Menu {
      * @param scanner Scanner para capturar la entrada del usuario.
      * @return El juego configurado con los jugadores y el tablero.
      */
-    public static Game createNewGame(Scanner scanner) {
+    public static Game_212495913_IanRioseco createNewGame(Scanner scanner) {
         System.out.println("\n### Crear Nuevo Juego ###");
 
         // Configuración del Jugador 1.
@@ -132,9 +128,9 @@ public class Menu {
         scanner.nextLine(); // Limpia el buffer.
 
         // Crear jugadores y juego.
-        Player player1 = new Player(player1Id, player1Name, player1Color, 0, 0, 0, piecesPerPlayer);
-        Player player2 = new Player(player2Id, player2Name, player2Color, 0, 0, 0, piecesPerPlayer);
-        Game game = new Game(player1, player2, new Board(), 1);
+        Player_212495913_IanRioseco player1 = new Player_212495913_IanRioseco(player1Id, player1Name, player1Color, 0, 0, 0, piecesPerPlayer);
+        Player_212495913_IanRioseco player2 = new Player_212495913_IanRioseco(player2Id, player2Name, player2Color, 0, 0, 0, piecesPerPlayer);
+        Game_212495913_IanRioseco game = new Game_212495913_IanRioseco(player1, player2, new Board_212495913_IanRioseco(), 1);
 
         System.out.println("\n### Juego creado exitosamente ###");
         return game;
@@ -147,8 +143,8 @@ public class Menu {
      * @param currentGame Juego actual.
      * @param scanner     Scanner para capturar la entrada del usuario.
      */
-    public static void playMove(Game currentGame, Scanner scanner) {
-        Player currentPlayer = currentGame.getCurrentPlayer();
+    public static void playMove(Game_212495913_IanRioseco currentGame, Scanner scanner) {
+        Player_212495913_IanRioseco currentPlayer = currentGame.getCurrentPlayer();
         System.out.println("\n### Realizar jugada ###");
         System.out.println("Turno de: " + currentPlayer.getName() + " (" + currentPlayer.getColor() + "): ");
         System.out.println("Fichas restantes: " + currentPlayer.getRemainingPieces());
@@ -163,11 +159,11 @@ public class Menu {
      *
      * @param currentGame Juego actual.
      */
-    public static void displayStatistics(Game currentGame) {
+    public static void displayStatistics(Game_212495913_IanRioseco currentGame) {
         System.out.println("\n### Estadísticas Generales ###");
 
-        Player player1 = currentGame.getPlayer1();
-        Player player2 = currentGame.getPlayer2();
+        Player_212495913_IanRioseco player1 = currentGame.getPlayer1();
+        Player_212495913_IanRioseco player2 = currentGame.getPlayer2();
 
         System.out.println(player1.getName() + " (" + player1.getColor() + "): ");
         System.out.println("- Victorias: " + player1.getWins());
