@@ -8,7 +8,6 @@ import java.util.Scanner;
  * realizar jugadas, visualizar estadísticas y finalizar el programa.
  */
 public class Menu {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Game_212495913_IanRioseco currentGame = null; // Variable para mantener el juego actual en ejecución.

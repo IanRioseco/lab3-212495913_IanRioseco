@@ -1,0 +1,113 @@
+# Conecta4 - README
+
+## Estructura del Proyecto
+
+El proyecto está compuesto por las siguientes clases:
+
+1. **`Player`**: Representa a un jugador, con atributos como nombre, color de ficha, estadísticas (victorias, derrotas, empates), y fichas restantes.
+2. **`Piece`**: Representa una ficha con un color específico.
+3. **`Board`**: Maneja el tablero del juego, incluyendo la colocación de piezas, verificación de victorias, y detección de un tablero lleno.
+4. **`Game`**: Controla la lógica principal del juego, incluyendo el manejo de turnos, historial de movimientos, verificación de estado (ganador o empate), y finalización del juego.
+5. **`Main`**: Contiene el menú interactivo y permite al usuario interactuar con el juego mediante opciones como crear un nuevo juego, realizar jugadas, y visualizar estadísticas.
+
+---
+
+## Instrucciones para Ejecutar el Juego
+
+### Requisitos Previos
+1. **Java**:
+   - Asegúrate de tener Java instalado (JDK 8 o superior).
+   - Verifica la instalación ejecutando:
+     ```
+     java -version
+     ```
+2. **Compilador de Java**:
+   - Se requiere un compilador como `javac`.
+
+### Estructura de Archivos
+El proyecto debe organizarse en la siguiente estructura:
+```
+Conecta4/
+├── Main.java
+├── Game.java
+├── Player.java
+├── Piece.java
+├── Board.java
+```
+
+### Compilación del Proyecto
+1. Abre la terminal y navega al directorio donde se encuentran los archivos del proyecto:
+   ```
+   cd /path/to/Conecta4
+   ```
+
+2. Compila todos los archivos Java:
+   ```
+   javac *.java
+   ```
+
+### Ejecución del Programa
+1. Ejecuta el programa desde la clase `Main`:
+   ```
+   java Main
+   ```
+
+---
+
+## Uso del Menú Interactivo
+
+Al iniciar el programa, se mostrará un menú principal con las siguientes opciones:
+
+### Opciones del Menú
+
+1. **Crear Nuevo Juego**:
+   - Configura un nuevo juego.
+   - Solicita el nombre, color de ficha, y cantidad de fichas por jugador (entre 4 y 21).
+
+2. **Visualizar Estado Actual**:
+   - Imprime el tablero actual del juego en la terminal.
+
+3. **Realizar Jugada**:
+   - Permite al jugador actual seleccionar una columna (1-7) para colocar su ficha.
+
+4. **Ver Estadísticas Generales**:
+   - Muestra las estadísticas de cada jugador (victorias, derrotas, empates, y fichas restantes).
+
+5. **Salir del Juego**:
+   - Cierra el programa.
+
+### Ejemplo de Flujo de Ejecución
+
+```
+### Conecta4 - Menú Principal ###
+1. Crear nuevo juego
+2. Visualizar estado actual
+3. Realizar jugada
+4. Ver estadísticas generales
+5. Salir del juego
+Ingrese su opción: 1
+
+### Crear Nuevo Juego ###
+Ingrese nombre del jugador 1: Juan
+Ingrese color del jugador 1 (Ej: Rojo): R
+Ingrese nombre del jugador 2: María
+Ingrese color del jugador 2 (Ej: Amarillo): Y
+Ingrese cantidad de fichas por jugador (4-21): 10
+¡Juego creado exitosamente!
+
+Presione enter para volver al menú principal...
+```
+
+---
+
+## Notas Adicionales
+
+- **Errores Comunes**:
+  - Si ingresas una opción inválida, el programa te pedirá que intentes nuevamente.
+  - Asegúrate de ingresar columnas válidas (1-7) al realizar jugadas.
+
+- **Finalización del Juego**:
+  - El juego termina automáticamente cuando hay un ganador o cuando ocurre un empate (tablero lleno o sin fichas).
+
+---
+

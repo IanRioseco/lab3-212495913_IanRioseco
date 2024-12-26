@@ -1,6 +1,6 @@
 package conecta4;
 
-public interface Boardinterface_212495913_IanRioseco {
+public interface BoardInterface_212495913_IanRioseco {
     boolean canPlay();
     boolean playPiece(int column, Piece_212495913_IanRioseco piece);
     int checkverticalwin();
