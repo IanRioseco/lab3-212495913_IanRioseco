@@ -1,13 +1,19 @@
 package conecta4;
 
 
+/**
+ * Clase que representa el tablero de juego para Connect4.
+ * Gestiona el estado del tablero, movimientos y verificación de condiciones de victoria.
+ */
 public class Board {
     private static final int ROWS = 6;
     private static final int COLUMNS = 7;
     private String[][] grid;
 
-
-    // FUNCION BOARD
+    /**
+     * Constructor para inicializar el tablero vacío.
+     * Llena la cuadrícula con el carácter "-" que representa una celda vacía.
+     */
     public Board() {
         grid = new String[ROWS][COLUMNS];
         for (int i = 0; i < ROWS; i++) {
@@ -17,7 +23,11 @@ public class Board {
         }
     }
 
-    // FUNCION SEPUEDEJUAGAR
+    /**
+     * Verifica si es posible realizar un movimiento en el tablero.
+     *
+     * @return true si hay al menos una columna con espacio disponible, de lo contrario false.
+     */
     public boolean canPlay() {
         for (int j = 0; j < COLUMNS; j++) {
             if (grid[0][j].equals("-")) return true;
@@ -25,7 +35,13 @@ public class Board {
         return false;
     }
 
-    // FUNCION PLAYPIECE
+    /**
+     * Realiza un movimiento colocando una pieza en la columna indicada.
+     *
+     * @param column el índice de la columna (0-6) donde se desea colocar la pieza.
+     * @param piece el color de la pieza representado como un String.
+     * @return true si el movimiento fue exitoso, de lo contrario false.
+     */
     public boolean playPiece(int column, String piece) {
         String auxpiece = piece.substring(0, 1);
         if (column < 0 || column >= COLUMNS) return false;
@@ -38,7 +54,11 @@ public class Board {
         return false;
     }
 
-    // FUNCION VICTORIA VERTICAL
+    /**
+     * Verifica si hay un ganador en una alineación vertical.
+     *
+     * @return 1 si el jugador rojo ("R") ganó, 2 si el jugador amarillo ("Y") ganó, 0 si no hay ganador.
+     */
     public int checkverticalwin() {
         for (int col = 0; col < COLUMNS; col++) {
             int count = 0;
@@ -47,9 +67,8 @@ public class Board {
                 String currentColor = grid[row][col];
                 if (!currentColor.equals("-") && currentColor.equals(lastColor)) {
                     count++;
-                    if (count == 4){
-                        if (lastColor.equals("R")) return 1;
-                        else return 2;
+                    if (count == 4) {
+                        return lastColor.equals("R") ? 1 : 2;
                     }
                 } else {
                     count = 1;
@@ -60,7 +79,11 @@ public class Board {
         return 0;
     }
 
-    // FUNCION VICTORIA HORIZONTAL
+    /**
+     * Verifica si hay un ganador en una alineación horizontal.
+     *
+     * @return 1 si el jugador rojo ("R") ganó, 2 si el jugador amarillo ("Y") ganó, 0 si no hay ganador.
+     */
     public int checkhorizontalwin() {
         for (int row = 0; row < ROWS; row++) {
             int count = 0;
@@ -69,9 +92,8 @@ public class Board {
                 String currentColor = grid[row][col];
                 if (!currentColor.equals("-") && currentColor.equals(lastColor)) {
                     count++;
-                    if (count == 4){
-                        if (lastColor.equals("R")) return 1;
-                        else return 2;
+                    if (count == 4) {
+                        return lastColor.equals("R") ? 1 : 2;
                     }
                 } else {
                     count = 1;
@@ -82,38 +104,46 @@ public class Board {
         return 0;
     }
 
-    // FUNCION VICTORIA DIAGONAL
+    /**
+     * Verifica si hay un ganador en una alineación diagonal.
+     *
+     * @return 1 si el jugador rojo ("R") ganó, 2 si el jugador amarillo ("Y") ganó, 0 si no hay ganador.
+     */
     public int checkdiagonalwin() {
         // Verificar diagonales ascendentes (↗)
-        for (int row = 3; row < ROWS; row++) { // Comenzar en la cuarta fila
-            for (int col = 0; col < COLUMNS - 3; col++) { // Evitar columnas fuera de rango
+        for (int row = 3; row < ROWS; row++) {
+            for (int col = 0; col < COLUMNS - 3; col++) {
                 String currentColor = grid[row][col];
                 if (!currentColor.equals("-") &&
                         currentColor.equals(grid[row - 1][col + 1]) &&
                         currentColor.equals(grid[row - 2][col + 2]) &&
                         currentColor.equals(grid[row - 3][col + 3])) {
-                    return currentColor.equals("R") ? 1 : 2; // Considera el color correcto
+                    return currentColor.equals("R") ? 1 : 2;
                 }
             }
         }
 
         // Verificar diagonales descendentes (↘)
-        for (int row = 0; row < ROWS - 3; row++) { // Evitar filas fuera de rango
-            for (int col = 0; col < COLUMNS - 3; col++) { // Evitar columnas fuera de rango
+        for (int row = 0; row < ROWS - 3; row++) {
+            for (int col = 0; col < COLUMNS - 3; col++) {
                 String currentColor = grid[row][col];
                 if (!currentColor.equals("-") &&
                         currentColor.equals(grid[row + 1][col + 1]) &&
                         currentColor.equals(grid[row + 2][col + 2]) &&
                         currentColor.equals(grid[row + 3][col + 3])) {
-                    return currentColor.equals("R") ? 1 : 2; // Considera el color correcto
+                    return currentColor.equals("R") ? 1 : 2;
                 }
             }
         }
 
-        return 0; // No hay ganador
+        return 0;
     }
 
-    // FUNCION PARA VERIFICAR GANADOR
+    /**
+     * Verifica si hay un ganador en el tablero revisando todas las alineaciones posibles.
+     *
+     * @return 1 si el jugador rojo ("R") ganó, 2 si el jugador amarillo ("Y") ganó, 0 si no hay ganador.
+     */
     public int entregarganador() {
         int verticalwinner = checkverticalwin();
         if (verticalwinner != 0) {
@@ -130,8 +160,9 @@ public class Board {
         return 0;
     }
 
-
-    // FUNCION PARA MOSTRAR EL TABLERO
+    /**
+     * Imprime el estado actual del tablero en la consola.
+     */
     public void printBoard() {
         for (String[] row : grid) {
             for (String cell : row) {
@@ -141,6 +172,3 @@ public class Board {
         }
     }
 }
-
-
-

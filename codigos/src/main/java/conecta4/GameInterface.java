@@ -2,7 +2,7 @@ package conecta4;
 
 import java.util.List;
 
-public interface Gameinterface {
+public interface GameInterface {
     Player getPlayer1();
     Player getPlayer2();
     int getCurrentTurn();
